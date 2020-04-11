@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Карточка</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <div class="tabs">
+    <div class="tabs__nav">
+      <a class="tabs__link tabs__link_active" href="#content-1">Видео</a>
+      <a class="tabs__link" href="#content-2">Фото</a>
+      <a class="tabs__link" href="#content-3">Дизайн-проект</a>
+      <a class="tabs__link" href="#content-4">Замеры</a>
+      <a class="tabs__link" href="#content-5">Фото до</a>
+    </div>
+    <div class="tabs__content">
+      <div class="tabs__pane tabs__pane_show" id="content-1">
+        <div class="tabs__video">
+          <a class="play"><img class="play-img" src="img/play.svg" alt="Воспроизвести"></a>
+        </div>
+        <div class="tabs__text">
+          <h2 class="tabs__title">Дом в коттеджном посёлке «Парк Вилл» на Ильинском шоссе.</h2>
+          <div class="tabs__area">Площадь: <span class="tabs__area-value">3000 м<sup>2</sup></span></div>
+          <a href="#" class="tabs__btn">Украсить дом</a>
+        </div>
+      </div>
+      <div class="tabs__pane" id="content-2">
+        Содержимое 2...
+      </div>
+      <div class="tabs__pane" id="content-3">
+        Содержимое 3...
+      </div>
+      <div class="tabs__pane" id="content-4">
+        Содержимое 4...
+      </div>
+      <div class="tabs__pane" id="content-5">
+        Содержимое 5...
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
