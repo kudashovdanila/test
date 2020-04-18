@@ -6,79 +6,84 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-}
-
-.tabs {
-  max-width: 540px;
   font-family: sans-serif;
-  font-size: 12px;
-  border-radius: 6px;
-  border: 1px solid #ffffff;
+}
+
+.accordion-container {
+  position: relative;
+  width: 100%;
+  max-width: 540px;
+  height: auto;
+  margin: 20px auto;
+  border: 1px solid #fff;
+}
+
+.set {
+  position: relative;
+  width: 100%;
   color: #fff;
+  height: auto;
 }
 
-.tabs__nav {
-  display: flex;
-  flex-wrap: wrap;
-  list-style-type: none;
-  font-weight: bold;
-  margin: 0;
-}
-
-.tabs__link {
-  padding: 10px 5px;
+.set>a {
+  display: block;
+  padding: 10px 15px;
   text-decoration: none;
+  color: #555;
+  font-weight: bold;
+
+  &:not(:last-child) {
+    border: 1px solid #fff;
+  }
+
   color: #fff;
-  text-align: center;
-  flex-shrink: 0;
-  flex-grow: 1;
-  transition: all .2s;
-  border: 1px solid #ffffff;
+
+
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  transition: all 0.2s linear;
 }
 
-.tabs__link_active {
+.set>a i {
+  position: relative;
+  float: right;
+  margin-top: 4px;
+  color: #666;
+}
+
+.set>a.active {
   background-color: #f93030;
   color: #fff;
-  cursor: default;
 }
 
-.tabs__link:not(.tabs__link_active):hover,
-.tabs__link:not(.tabs__link_active):focus {
-  background-color: #c42424;
+.set>a.active i {
+  color: #fff;
 }
 
-.tabs__content {
-  min-height: 250px;
-  border: 1px solid #ffffff;
-  border-radius: 0 0 6px 6px;
-
-}
-
-.tabs__pane {
+.content {
+  position: relative;
+  width: 100%;
+  height: auto;
+  border: 1px solid #fff;
   display: none;
 }
 
-.tabs__pane_show {
-  display: flex;
+.tabs {
+  color: #fff;
+
+  &__list {}
 }
 
 .tabs-list {
+  color: #fff;
   list-style: none;
   padding: 0 20px;
-  font-size: 16px;
   width: 100%;
-
-  @media (max-width: 326px) {
-    padding: 0 10px;
-  }
 
   &__item {
     display: flex;
     justify-content: space-between;
-
-    &:not(:last-child) {
-      margin-bottom: 10px;
-    }
+    margin-bottom: 10px;
   }
 
   &__text {
@@ -87,6 +92,5 @@ body {
 
   &__price {
     font-weight: bold;
-    white-space: nowrap;
   }
 }
