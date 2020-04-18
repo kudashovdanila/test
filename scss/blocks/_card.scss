@@ -23,7 +23,6 @@ body {
   list-style-type: none;
   font-weight: bold;
   margin: 0;
-  border: 1px solid #ffffff;
 }
 
 .tabs__link {
@@ -38,19 +37,21 @@ body {
 }
 
 .tabs__link_active {
-  background-color: red;
+  background-color: #f93030;
   color: #fff;
   cursor: default;
 }
 
 .tabs__link:not(.tabs__link_active):hover,
 .tabs__link:not(.tabs__link_active):focus {
-  background-color: rgb(155, 1, 1);
+  background-color: #c42424;
 }
 
 .tabs__content {
+  min-height: 250px;
   border: 1px solid #ffffff;
   border-radius: 0 0 6px 6px;
+
 }
 
 .tabs__pane {
@@ -63,23 +64,29 @@ body {
 
 .tabs-list {
   list-style: none;
-  padding: 0 20px 0 20px;
+  padding: 0 20px;
   font-size: 16px;
   width: 100%;
+
+  @media (max-width: 326px) {
+    padding: 0 10px;
+  }
 
   &__item {
     display: flex;
     justify-content: space-between;
-    align-items: center;
 
     &:not(:last-child) {
       margin-bottom: 10px;
     }
   }
 
-  &__text {}
+  &__text {
+    flex-basis: 65%;
+  }
 
   &__price {
     font-weight: bold;
+    white-space: nowrap;
   }
 }
