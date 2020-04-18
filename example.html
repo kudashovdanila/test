@@ -1,0 +1,112 @@
+ <div class="row">
+   <div id="mydiv1" class="col-md-5 col-lg-4">
+     <div id="dd" class="wrapper-dropdown">
+       <span> Выберите</span>
+       <ul class="price-tabs dropdown">
+         <?php
+                  $price_main_categories = get_terms(array(
+                     'taxonomy' => 'price-category',
+                     'hide_empty' => true,
+                     'parent' => 0
+                  ));
+                  $i = 0;
+                  $active = '';
+                  foreach ($price_main_categories as $main_category):
+                     $i == 0 ? $active = ' active' : $active = '';
+                     $category_name = $main_category->name;
+                     $category_slug = $main_category->slug;
+                     ?>
+         <li>
+           <a id="<?php echo strtolower($category_slug); ?>-tab" class="price-tab <?php echo $active; ?>"
+             href="#<?php echo strtolower($category_slug); ?>">
+             <?php echo $category_name; ?>
+           </a>
+         </li>
+         <?php
+                     $i++;
+                  endforeach;
+               ?>
+       </ul>
+     </div>
+   </div>
+   <div id="mydiv3" class="col-md-7 col-lg-7 col-xl-6">
+     <div id="mydiv2" class="tab-content__wrap">
+       <?php
+                  $price_main_categories = get_terms(array(
+                     'taxonomy' => 'price-category',
+                     'hide_empty' => true,
+                     'parent' => 0
+                  ));
+                  $i = 0;
+                  $active = '';
+                  foreach ($price_main_categories as $main_category):
+                     $i == 0 ? $active = ' active' : $active = '';
+                     $category_name = $main_category->name;
+                     $category_slug = $main_category->slug;
+                     $category_id = $main_category->term_id;
+                     $subcategories = get_terms('price-category',array('child_of' => $category_id));
+                     
+                     ?>
+       <div id="<?php echo strtolower($category_slug); ?>" class="tab-content <?php echo $active; ?>">
+         <div class="slider-nav price-slick">
+           <?php
+                                 foreach($subcategories as $category):
+							   	
+							   	 if (function_exists('z_taxonomy_image_url')) { echo z_taxonomy_image_url(); } 
+							   ?>
+
+           <div class="price-slick-<?php echo $category->slug?>">
+             <div class="price-slick-classes"><?php echo $category->name;?></div>
+           </div>
+           <?php
+                                 endforeach;
+                              ?>
+         </div>
+         <div class="slider-for <?php echo $active; ?>">
+           <?php
+                              foreach($subcategories as $category):
+                           ?>
+           <ul class="price-slick-prices">
+             <?php
+                                    $services_item = new WP_Query(array(
+                                       'post_type' => 'price',
+                                       'posts_per_page' => -1,
+                                       'orderby' => 'name',
+                                       'order' => 'DESC',
+                                       'tax_query' => array(
+                                          array(
+                                             'taxonomy' => 'price-category',
+                                             'field'    => 'term_id',
+                                             'terms'    => $category->term_id,
+                                          ),
+                                       ),
+                                    ));
+                                    if($services_item->have_posts()) :
+                                       /* Start the Loop */
+                                       while($services_item->have_posts()) : $services_item->the_post();
+                                          ?>
+             <li>
+               <?php the_title();?>
+               <span class="price-slick-cost"><?php the_field('price_cost');?></span>
+             </li>
+             <?php
+                                       endwhile;
+                                       wp_reset_postdata();
+                                    endif;
+                                 ?>
+           </ul>
+           <?php
+                              endforeach;
+                           ?>
+         </div>
+       </div>
+       <?php
+                     $i++;
+                  endforeach;
+               ?>
+     </div>
+     <a class="btn call-popup price__btn" data-effect="mfp-zoom-in" href="#call-us-popup">
+       Записаться на ремонт
+     </a>
+   </div>
+ </div>
