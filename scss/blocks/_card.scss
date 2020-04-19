@@ -15,7 +15,6 @@ body {
   max-width: 540px;
   height: auto;
   margin: 20px auto;
-  border: 1px solid #fff;
 }
 
 .set {
@@ -27,14 +26,16 @@ body {
 
 .set>a {
   display: block;
-  padding: 10px 15px;
+  padding: 14px 20px;
   text-decoration: none;
   color: #555;
   font-weight: bold;
+  margin: 10px 0;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 6px;
+  border: 1px solid #f93030;
 
-  &:not(:last-child) {
-    border: 1px solid #fff;
-  }
 
   color: #fff;
 
