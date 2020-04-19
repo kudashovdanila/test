@@ -45,19 +45,8 @@ body {
   transition: all 0.2s linear;
 }
 
-.set>a i {
-  position: relative;
-  float: right;
-  margin-top: 4px;
-  color: #666;
-}
-
 .set>a.active {
   background-color: #f93030;
-  color: #fff;
-}
-
-.set>a.active i {
   color: #fff;
 }
 
@@ -67,12 +56,11 @@ body {
   height: auto;
   border: 1px solid #fff;
   display: none;
+  border-radius: 6px;
 }
 
 .tabs {
   color: #fff;
-
-  &__list {}
 }
 
 .tabs-list {
